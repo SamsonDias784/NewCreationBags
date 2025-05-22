@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>New Creation | Paper Bags & Boxes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <style>
+    body {
+      background-color: #fdfdfd;
+      color: #333;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #6a1b1a;
+    }
+    .navbar-brand span {
+      font-size: 1.5rem;
+      color: #fff;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #6a1b1a, #a84436);
+      color: #fff;
+    }
+
+    /* Section Backgrounds */
+    #intro-section {
+      background-color: #faf7f4;
+    }
+    #clients-section {
+      background-color: #f1f1f1;
+    }
+
+    /* Button Animations */
+    .ripple-button {
+      position: relative;
+      overflow: hidden;
+    }
+    .ripple-button::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      top: 50%;
+      left: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%) scale(0);
+      background: rgba(255, 255, 255, 0.5);
+      animation: ripple 0.6s linear;
+      opacity: 0;
+    }
+    .ripple-button.clicked::after {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+    @keyframes ripple {
+      to {
+        transform: translate(-50%, -50%) scale(2.5);
+        opacity: 0;
+      }
+    }
+
+    /* Zoom on Hover */
+    .zoom:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark px-4">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="assets/images/logo.png" alt="New Creation Logo" width="40" class="me-2" />
+        <span>New Creation</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero text-white text-center py-5">
+    <div class="container">
+      <h2 class="display-4 fw-bold">Bold. Eco-Friendly. Beautiful.</h2>
+      <p class="lead">Discover handcrafted paper bags and boxes for every occasion.</p>
+      <a href="products.html" class="btn btn-light btn-lg mt-3 ripple-button">Explore Our Collection</a>
+    </div>
+  </section>
+
+  <!-- Intro Section -->
+  <section class="intro py-5 text-center" id="intro-section">
+    <div class="container">
+      <h3 class="text-dark mb-3">Why Choose New Creation?</h3>
+      <p class="mx-auto" style="max-width: 600px;">
+        We specialize in colorful, creative, and customizable paper packaging. From festive boxes to elegant gift bags — all made with sustainable materials.
+      </p>
+    </div>
+  </section>
+
+  <!-- Our Clients Section -->
+  <section class="py-5 text-center" id="clients-section">
+    <div class="container">
+      <h2 class="text-dark fw-bold mb-4">Our Clients</h2>
+      <p class="mb-4">We proudly serve major hotels and premium businesses — below are some of our esteemed clients.</p>
+      <div class="row justify-content-center">
+        <div class="col-6 col-md-3 mb-4 zoom">
+          <img src="assets/images/client1.png" alt="Client 1" class="img-fluid" />
+        </div>
+        <div class="col-6 col-md-3 mb-4 zoom">
+          <img src="assets/images/client2.png" alt="Client 2" class="img-fluid" />
+        </div>
+        <div class="col-6 col-md-3 mb-4 zoom">
+          <img src="assets/images/client3.png" alt="Client 3" class="img-fluid" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="background-color: #333; color: #f0f0f0;" class="text-center py-3">
+    <p class="mb-0">&copy; 2025 New Creation. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Button animation
+      $('.btn').hide().show('bounce', { times: 3 }, 600);
+
+      // Ripple effect
+      $('.ripple-button').on('click', function(e) {
+        const button = $(this);
+        button.addClass('clicked');
+        setTimeout(() => button.removeClass('clicked'), 600);
+      });
+
+      // Slide-in animations
+      $('#intro-section').hide().show('slide', { direction: 'left' }, 1000);
+      $('#clients-section').hide().show('slide', { direction: 'right' }, 1000);
+    });
+  </script>
+</body>
+</html>

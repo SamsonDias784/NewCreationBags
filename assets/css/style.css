@@ -119,5 +119,6 @@ img {
 
 .card.custom-small {
   max-width: 1000px;
+  max-height: 500px
   margin: 0 auto; /* Center the card */
 }

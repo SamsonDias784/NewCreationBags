@@ -116,3 +116,8 @@ img {
   opacity: 1;
   transform: translateX(0);
 }
+
+.card.custom-small {
+  max-width: 250px;
+  margin: 0 auto; /* Center the card */
+}

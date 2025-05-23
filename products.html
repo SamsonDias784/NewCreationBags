@@ -6,6 +6,59 @@
   <title>Our Products | New Creation</title>
   <link rel="stylesheet" href="assets/css/style.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  
+  <style>
+    body {
+      background-color: #fdfdfd;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    header {
+      background: linear-gradient(135deg, #f857a6, #ff5858);
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .ripple-button {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ripple-button::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      top: 50%;
+      left: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%) scale(0);
+      background: rgba(255, 255, 255, 0.5);
+      animation: ripple 0.6s linear;
+      opacity: 0;
+    }
+
+    .ripple-button.clicked::after {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+
+    @keyframes ripple {
+      to {
+        transform: translate(-50%, -50%) scale(2.5);
+        opacity: 0;
+      }
+    }
+	
+	
+  </style>
 </head>
 <body>
 
@@ -26,12 +79,28 @@
           <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
         </ul>
+		        <!-- Social icons in navbar -->
+        <div class="navbar-socials d-flex align-items-center ms-3">
+          <a href="https://www.instagram.com/newcreationbag" target="_blank" title="Instagram" >
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://wa.me/919820604796" target="_blank" title="WhatsApp" >
+            <i class="fab fa-whatsapp"></i>
+          </a>
+          <a href="mailto:newcreationbag@yahoo.com" target="_blank" title="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+		  <a href="https://www.facebook.com/YourPageURL" target="_blank" title="Facebook">
+			<i class="fab fa-facebook-f"></i>
+		  </a>
+		  
+        </div>
       </div>
     </div>
   </nav>
 
   <!-- Header -->
-  <header class="text-white text-center py-5" style="background: linear-gradient(135deg, #f857a6, #ff5858);">
+  <header class="text-white text-center py-5 ripple-button" id="product-header">
     <div class="container">
       <h1 class="display-4 fw-bold">Our Products</h1>
       <p class="lead">Bold, sustainable, and beautifully crafted for every need.</p>
@@ -41,12 +110,12 @@
   <!-- Product Cards -->
   <section class="py-5">
     <div class="container">
-      <div class="row g-4">
+      <div class="row g-4" id="product-cards">
 
         <!-- Paper Bags -->
-        <div class="custom-small">
+        <div class="col-md-4">
           <a href="paperbags.html" class="text-decoration-none text-dark">
-            <div class="card h-100 shadow-sm border-0">
+            <div class="card h-100 shadow-sm border-0 ripple-button">
               <img src="assets/images/paper_bag.PNG" class="card-img-top" alt="Paper Bags">
               <div class="card-body">
                 <h5 class="card-title text-danger">Paper Bags</h5>
@@ -57,9 +126,9 @@
         </div>
 
         <!-- Paper Boxes -->
-        <div class="custom-small">
+        <div class="col-md-4">
           <a href="paper-boxes.html" class="text-decoration-none text-dark">
-            <div class="card h-100 shadow-sm border-0">
+            <div class="card h-100 shadow-sm border-0 ripple-button">
               <img src="assets/images/paper_box.PNG" class="card-img-top" alt="Paper Boxes">
               <div class="card-body">
                 <h5 class="card-title text-danger">Paper Boxes</h5>
@@ -70,25 +139,99 @@
         </div>
 
         <!-- Designer boards -->
-        <div class="custom-small">
-          <div class="card h-100 shadow-sm border-0">
-            <img src="assets/images/cake_base.PNG" class="card-img-top" alt="Designer boards">
-            <div class="card-body">
-              <h5 class="card-title text-danger">Designer boards</h5>
-              <p class="card-text">High-quality Designer boards for cake base, pastry base, and more — fully customizable to your needs.</p>
+        <div class="col-md-4">
+          <a href="designer-boards.html" class="text-decoration-none text-dark">
+            <div class="card h-100 shadow-sm border-0 ripple-button">
+              <img src="assets/images/cake_base.PNG" class="card-img-top" alt="Designer boards">
+              <div class="card-body">
+                <h5 class="card-title text-danger">Designer boards</h5>
+                <p class="card-text">High-quality Designer boards for cake base, pastry base, and more — fully customizable to your needs.</p>
+              </div>
             </div>
-          </div>
+          </a>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-dark text-white text-center py-3">
-    <p class="mb-0">&copy; 2025 New Creation. All rights reserved.</p>
-  </footer>
+<!-- Footer with Social Icons -->
+<footer class="bg-dark text-white text-center py-4 mt-auto">
+  <div class="container">
+    <p class="mb-3">&copy; 2025 New Creation. All rights reserved.</p>
+    <div class="footer-socials d-flex justify-content-center">
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/newcreationbag" target="_blank" title="Instagram" class="social-icon" aria-label="Instagram">
+        <!-- Instagram SVG -->
+        <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="url(#instagramGradientFooter)">
+          <defs>
+            <linearGradient id="instagramGradientFooter" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f58529"/>
+              <stop offset="30%" stop-color="#dd2a7b"/>
+              <stop offset="60%" stop-color="#8134af"/>
+              <stop offset="100%" stop-color="#515bd4"/>
+            </linearGradient>
+          </defs>
+          <path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 1.5A4.25 4.25 0 003.5 7.75v8.5A4.25 4.25 0 007.75 20.5h8.5a4.25 4.25 0 004.25-4.25v-8.5A4.25 4.25 0 0016.25 3.5h-8.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 1.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7zm5.25-.88a1.13 1.13 0 110 2.25 1.13 1.13 0 010-2.25z"/>
+        </svg>
+      </a>
 
+      <!-- WhatsApp -->
+      <a href="https://wa.me/919820604796" target="_blank" title="WhatsApp" class="social-icon" aria-label="WhatsApp">
+        <!-- WhatsApp SVG -->
+        <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#25D366">
+          <path d="M20.52 3.48a11.35 11.35 0 00-16.1 0 11.43 11.43 0 00-3.32 8.06 11.3 11.3 0 001.72 6.24l-1.15 4.2 4.3-1.12a11.41 11.41 0 006.15 1.68h.02a11.43 11.43 0 008.07-3.32 11.35 11.35 0 000-16.1zm-8.5 15.28a9.15 9.15 0 01-4.63-1.28l-.33-.2-2.7.7.72-2.63-.21-.34a9.1 9.1 0 0115.77-6.56 9.11 9.11 0 01-6.56 15.77z"/>
+          <path d="M17.54 14.48c-.3-.15-1.77-.87-2.04-.97s-.47-.15-.67.15-.77.97-.95 1.17-.35.22-.65.08a8.4 8.4 0 01-2.47-1.52 9.36 9.36 0 01-1.74-2.16c-.18-.3 0-.46.13-.61.14-.15.3-.38.45-.57.15-.18.2-.3.3-.5a.6.6 0 00-.05-.56c-.15-.3-.67-1.6-.92-2.2-.24-.57-.48-.49-.66-.5a1.12 1.12 0 00-.52 0 1.63 1.63 0 00-.56.44 2.5 2.5 0 00-.75 1.13 3.16 3.16 0 00-.3 1.37 6.4 6.4 0 001.74 3.36 11.26 11.26 0 005.45 4.4 4.5 4.5 0 002.02.32 2.93 2.93 0 001.8-1.54c.15-.27.15-.5.1-.55s-.3-.15-.6-.3z"/>
+        </svg>
+      </a>
+
+      <!-- Email -->
+      <a href="mailto:newcreationbag@yahoo.com" target="_blank" title="Email" class="social-icon" aria-label="Email">
+        <!-- Email SVG -->
+        <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#D44638">
+          <path d="M12 12.713l-11.985-7.21a.495.495 0 01-.015-.784l1.215-1.006a.503.503 0 01.67-.015L12 11.288l10.115-7.59a.5.5 0 01.692.027l1.076 1.076a.5.5 0 01.015.71L12 12.713z"/>
+          <path d="M12 13.333L.015 6.12v11.606A1.282 1.282 0 001.29 19h21.42a1.283 1.283 0 001.275-1.274V6.12L12 13.333z"/>
+        </svg>
+      </a>
+
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/YourPageURL" target="_blank" title="Facebook" class="social-icon" aria-label="Facebook">
+        <!-- Facebook SVG -->
+        <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#1877F2">
+          <path d="M22.675 0h-21.35C.592 0 0 .592 0 1.325v21.351C0 23.408.592 24 1.325 24h11.482v-9.294H9.691v-3.622h3.116V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.796.715-1.796 1.763v2.31h3.587l-.467 3.622h-3.12V24h6.116C23.408 24 24 23.408 24 22.675V1.325C24 .592 23.408 0 22.675 0z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Animate header
+      $('#product-header').hide().show('bounce', { times: 3 }, 600);
+
+      // Animate product cards
+      $('#product-cards .col-md-4').hide().each(function(index) {
+        $(this).delay(index * 200).show('slide', { direction: 'up' }, 600);
+      });
+
+      // Ripple effect
+      $('.ripple-button').on('click', function(e) {
+        const button = $(this);
+        button.addClass('clicked');
+        setTimeout(() => button.removeClass('clicked'), 600);
+      });
+    });
+  </script>
+  
+    <!-- Floating WhatsApp Button -->
+<a href="https://wa.me/919820604796" target="_blank" aria-label="Chat on WhatsApp" class="floating-whatsapp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
 </body>
 </html>

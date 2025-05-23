@@ -117,8 +117,188 @@ img {
   transform: translateX(0);
 }
 
-.card.custom-small {
-  max-width: 10px;
-  max-height: 10px
-  margin: 0 auto; /* Center the card */
+.card.custom-size {
+  width: 380px;
+  height: 450px;
+  overflow: hidden;
 }
+
+#testimonials-section .row {
+  align-items: stretch; /* Make columns equal height */
+}
+
+#testimonials-section .card {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Make card fill column height */
+  border: none;
+  box-shadow: 0 0 15px rgba(168, 53, 40, 0.2);
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: transform 0.3s ease;
+}
+#testimonials-section .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(168, 53, 40, 0.3);
+}
+
+#testimonials-section .card-text {
+  font-style: italic;
+  color: #6a1b1a;
+  flex-grow: 1; /* Let text area grow to fill space */
+}
+
+#testimonials-section .testimonial-author {
+  margin-top: 1rem;
+  font-weight: 700;
+  color: #a84436;
+  /* Stays at bottom because of flex */
+}
+
+  <style>
+    body {
+      background-color: #fdfdfd;
+      color: #333;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #6a1b1a;
+    }
+    .navbar-brand span {
+      font-size: 1.5rem;
+      color: #fff;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #6a1b1a, #a84436);
+      color: #fff;
+    }
+
+    /* Section Backgrounds */
+    #intro-section {
+      background-color: #faf7f4;
+    }
+    #clients-section {
+      background-color: #f1f1f1;
+    }
+    #testimonials-section {
+      background-color: #fff5f5;
+    }
+
+    /* Button Animations */
+    .ripple-button {
+      position: relative;
+      overflow: hidden;
+    }
+    .ripple-button::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      top: 50%;
+      left: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%) scale(0);
+      background: rgba(255, 255, 255, 0.5);
+      animation: ripple 0.6s linear;
+      opacity: 0;
+    }
+    .ripple-button.clicked::after {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+    @keyframes ripple {
+      to {
+        transform: translate(-50%, -50%) scale(2.5);
+        opacity: 0;
+      }
+    }
+
+    /* Zoom on Hover */
+    .zoom:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    /* Testimonials */
+    #testimonials-section .card {
+      border: none;
+      box-shadow: 0 0 15px rgba(168, 53, 40, 0.2);
+      background-color: #fff;
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+    #testimonials-section .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(168, 53, 40, 0.3);
+    }
+    #testimonials-section .card-text {
+      font-style: italic;
+      color: #6a1b1a;
+    }
+    #testimonials-section .testimonial-author {
+      margin-top: 1rem;
+      font-weight: 700;
+      color: #a84436;
+    }
+	
+	    .social-icon:hover {
+      color: #ffcc00;
+      transform: scale(1.2);
+      transition: all 0.3s ease;
+    }
+
+    /* Social icons container in navbar */
+    .navbar-socials a {
+      color: white;
+      margin-left: 15px;
+      font-size: 1.25rem;
+    }
+    .navbar-socials a:hover {
+      color: #ffcc00;
+      transform: scale(1.2);
+      transition: all 0.3s ease;
+    }
+	
+    /* Social icon containers */
+    .social-icon {
+      width: 32px;
+      height: 32px;
+      display: inline-block;
+      margin: 0 12px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+	
+	.floating-whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: white;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 1050;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.floating-whatsapp:hover {
+  background-color: #1ebe5b;
+  text-decoration: none;
+  color: white;
+}
+
+

@@ -301,3 +301,11 @@ img {
   color: white;
 }
 
+#whatsapp-icon {
+  position: fixed;
+  bottom: 80px; /* moved up from 20px */
+  right: 20px;
+  z-index: 999;
+}
+
+
